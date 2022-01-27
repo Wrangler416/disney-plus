@@ -4,6 +4,8 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #13151F;
+  color: white; 
 }
 
 a {
@@ -13,4 +15,91 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+
+.main-video {
+  width: 100vw;
+  height: 50vh;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.app {
+  margin: 1rem; 
+}
+
+.card {
+  filter: drop-shadow(5px 5px 10px #000);
+  margin: 1rem; 
+}
+
+.navbar {
+  width: 100%;
+  height: 4.5rem;
+}
+
+.movie-info {
+  padding: 1rem;
+  margin-top: 15rem; 
+  position: relative; 
+  max-width: 50%; 
+  margin-left: 6rem; 
+}
+
+.movie-img {
+  width: 100%;
+  position: absolute; 
+  top: 0;
+  height: 80vh;
+}
+.video-overlay {
+  position: absolute; 
+
+}
+
+.info-footer {
+  height: 100vh;
+}
+
+.account-info {
+  display: flex;
+  height: 50%;
+  float: right; 
+}
+
+.avatar {
+  width: 50px;
+  height: 50px; 
+  margin: 10px;
+  border-radius: 50%; 
+}
+
+.video-feed {
+  margin: .5rem; 
+  display: flex; 
+}
+
+.mov {
+  margin: 5px 5px 5px 5px; 
+}
+
+.category {
+  background-color: black; 
+  display: flex; 
+  align-items: center;
+  padding: .5rem; 
+  height: 6rem; 
+  width: 10rem; 
+  margin: 1rem; 
+}
+.sections {
+  display: block;
+}
+
+.hero {
+  position: relative;
+}
+
+.but {
+  position: relative; 
 }
