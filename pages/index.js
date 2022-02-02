@@ -91,7 +91,7 @@ export default function Home({videos, account}) {
     <Navbar account={account}/>
       <Container maxWidth="xl">
          <Container style={{ position: "relative", height: "50%", width: "100%"}}>
-            <Image src={randomVideo(videos).thumbnail.url} width={800} height={400}></Image>
+            <Image style={{width: "100%"}}src={randomVideo(videos).thumbnail.url} width={1200} height={700}></Image>
 
             <CardMedia style={{position: "absolute", top: "70%", left: "50%",transform: "translateX(-50%)"}}>
           <Image src={plus} height={70} width={120}></Image>
@@ -100,12 +100,10 @@ export default function Home({videos, account}) {
           <CardMedia style={{margin: "2px", position: "absolute", top: "90%", left: "50%",transform: "translateX(-50%)"}}>
           <Button className="but" variant="contained">Get the disney bundle</Button>
           </CardMedia>
-          
+
          </Container>
 
-          
-
-
+        
               <Grid spacing={2}>
               </Grid>
                 <div className="video-feed"> 
@@ -115,7 +113,7 @@ export default function Home({videos, account}) {
                   <a href="#adventure"><div className="category" id="adventure"><Image className="category"src={nat} /></div></a>
                   </div>
 
-        <Grid container spacing={2}>
+        <Grid container spacing={2} width="100%">
               <Card style={{backgroundColor: "#13151F"}}>
                 <Typography style={{color: "white"}}>
                   Recommended for you
