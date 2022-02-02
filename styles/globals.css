@@ -25,17 +25,12 @@ a {
   margin-bottom: 1.5rem;
 }
 .app {
-  margin: 1rem; 
+  margin: 3rem; 
 }
 
 .card {
   filter: drop-shadow(5px 5px 10px #000);
   margin: 1rem; 
-}
-
-.navbar {
-  width: 100%;
-  height: 4.5rem;
 }
 
 .movie-info {

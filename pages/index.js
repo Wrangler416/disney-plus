@@ -14,6 +14,8 @@ import CardActions from '@mui/material/CardActions'
 // import { withTheme } from '@emotion/react'
 import Typography from '@mui/material/Typography'
 import plus from '../public/dlogo.png'
+import Container from '@mui/material/Container'
+
 
 export const getStaticProps = async () => {
 
@@ -55,13 +57,11 @@ const accountQuery = gql `
             }
 `
 
-
 const data = await graphQLClient.request(videosQuery) 
 const videos = data.videos
 
 const accountData = await graphQLClient.request(accountQuery)
 const account = accountData.account 
-
 
 
 return {
@@ -90,9 +90,9 @@ export default function Home({videos, account}) {
    <>
     <div className="app"> 
     <Navbar account={account}/>
-
-        <Card style={{ position: "relative" }}>
-          <CardMedia style={{ height: "70%", width: "100%" }}  
+      <Container maxWidth="xl">
+         <Card style={{ position: "relative" }}>
+          <CardMedia style={{ height: "50%", width: "100%" }}  
                      component="img" image={randomVideo(videos).thumbnail.url}   
                      alt="movie-image"
           /> 
@@ -151,6 +151,7 @@ export default function Home({videos, account}) {
               <Section id="action"  videos={filterVideos(videos, 'action')}/>
               </Card>
           </Grid>
+      </Container>
     </div>
    </>
   )
