@@ -89,21 +89,19 @@ export default function Home({videos, account}) {
    <>
   
     <Navbar account={account}/>
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" style={{width: "100%"}}>
          <Container style={{ position: "relative", height: "50%", width: "100%"}}>
             <Image style={{width: "100%"}}src={randomVideo(videos).thumbnail.url} width={1200} height={700}></Image>
-
-            <CardMedia style={{position: "absolute", top: "70%", left: "50%",transform: "translateX(-50%)"}}>
-          <Image src={plus} height={70} width={120}></Image>
-          </CardMedia>
-
-          <CardMedia style={{margin: "2px", position: "absolute", top: "90%", left: "50%",transform: "translateX(-50%)"}}>
-          <Button className="but" variant="contained">Get the disney bundle</Button>
-          </CardMedia>
-
          </Container>
 
-        
+      <Container style={{display: "flex", margin: "1rem", alignItems: "center", justifyContent: "center"}}>
+         <Image src={plus} height={50} width={80}></Image>
+         <Button size="small" className="but" variant="contained">Get the disney bundle</Button>
+      
+      </Container>
+
+      {/* <Container style={{left: "50%", transform: "translateX(-50%)"}}> */}
+
               <Grid spacing={2}>
               </Grid>
                 <div className="video-feed"> 
