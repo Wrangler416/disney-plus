@@ -10,7 +10,6 @@ import Button from '@mui/material/Button';
 import CardMedia from '@mui/material/CardMedia';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid'
-import CardActions from '@mui/material/CardActions'
 // import { withTheme } from '@emotion/react'
 import Typography from '@mui/material/Typography'
 import plus from '../public/dlogo.png'
@@ -88,22 +87,24 @@ export default function Home({videos, account}) {
 
   return (
    <>
-    <div className="app"> 
+  
     <Navbar account={account}/>
       <Container maxWidth="xl">
-         <Card style={{ position: "relative" }}>
-          <CardMedia style={{ height: "50%", width: "100%" }}  
-                     component="img" image={randomVideo(videos).thumbnail.url}   
-                     alt="movie-image"
-          /> 
-          <CardMedia style={{position: "absolute", top: "70%", left: "50%",transform: "translateX(-50%)"}}>
+         <Container style={{ position: "relative", height: "50%", width: "100%"}}>
+            <Image src={randomVideo(videos).thumbnail.url} width={800} height={400}></Image>
+
+            <CardMedia style={{position: "absolute", top: "70%", left: "50%",transform: "translateX(-50%)"}}>
           <Image src={plus} height={70} width={120}></Image>
           </CardMedia>
 
           <CardMedia style={{margin: "2px", position: "absolute", top: "90%", left: "50%",transform: "translateX(-50%)"}}>
           <Button className="but" variant="contained">Get the disney bundle</Button>
           </CardMedia>
-         </Card>
+          
+         </Container>
+
+          
+
 
               <Grid spacing={2}>
               </Grid>
@@ -152,7 +153,7 @@ export default function Home({videos, account}) {
               </Card>
           </Grid>
       </Container>
-    </div>
+ 
    </>
   )
 }
