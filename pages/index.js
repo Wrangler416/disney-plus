@@ -6,15 +6,16 @@ import dis from '../public/dis.png'
 import marv from '../public/marvel.jpeg'
 import nat from '../public/nat.png'
 import pix from '../public/pix.jpg'
-import Button from '@mui/material/Button';
-import CardMedia from '@mui/material/CardMedia';
-import Card from '@mui/material/Card';
-import Grid from '@mui/material/Grid'
-// import { withTheme } from '@emotion/react'
-import Typography from '@mui/material/Typography'
 import plus from '../public/dlogo.png'
-import Container from '@mui/material/Container'
 
+import {
+  Grid, 
+  Card, 
+  CardContent, 
+  Typography,
+  CardActionArea,
+  Button,} 
+  from '@mui/material'
 
 export const getStaticProps = async () => {
 
@@ -89,66 +90,157 @@ export default function Home({videos, account}) {
    <>
   
     <Navbar account={account}/>
-      <Container maxWidth="xl" style={{width: "100%"}}>
-         <Container style={{ position: "relative", height: "50%", width: "100%"}}>
-            <Image style={{width: "100%"}}src={randomVideo(videos).thumbnail.url} width={1200} height={700}></Image>
-         </Container>
 
-      <Container style={{display: "flex", margin: "1rem", alignItems: "center", justifyContent: "center"}}>
-         <Image src={plus} height={50} width={80}></Image>
-         <Button size="small" className="but" variant="contained">Get the disney bundle</Button>
-      
-      </Container>
+<Grid container columns={{ xs: 4, md: 12 }}>
+    <Grid item xs={12} md={16} lg={16} >
+    <Card style={{backgroundColor: 'black'}}>
+    <CardContent>
+      <div style={{position: 'relative'}} >
+        <Image style={{width: "100%"}}src={randomVideo(videos).thumbnail.url} width={1400} height={800}>
+        </Image>
+            <div style={{
+              position: 'absolute', 
+              color: '#001540', 
+              top: '12%', 
+              left: '73%', 
+              transform: 'translateX(-50%)'
+              }}>
+              </div>
+        <div style={{display: "flex", justifyContent: "center", margin: ".5rem"}}>
+      <Image src={plus} height={50} width={80}></Image>
+      <Button size="medium" className="but" variant="contained">Get the disney bundle</Button>
+      </div>
+  </div>
+</CardContent>
+</Card>        
+</Grid>
+</Grid>
 
-      {/* <Container style={{left: "50%", transform: "translateX(-50%)"}}> */}
+<Grid   
+    container columns={{ xs: 4, md: 12, lg: 16 }}
+    direction="row"
+    justifyContent="center"
+    alignItems="center"
+    >
+    <div style={{display: "flex", backgroundColor: "black", padding: ".5rem", justifyContent: "center", alignItems: "center", justifyContent: "space-evenly"}}>
+    <Grid item xs={6} md={8} lg={12}>
+    <a href="#family"><div id="family"><Image src={dis} width={200} height={100}/></div></a>
+    </Grid>
+    <Grid item xs={6} md={8} lg={12}>
+    <a href="#drama"><div id="drama"><Image src={marv} /></div></a>
+    </Grid>
+    <Grid item xs={6} md={8} lg={12}>
+    <a href="#action"><div id="action"><Image src={pix}/></div></a>
+    </Grid>
+    <Grid item xs={6} md={8} lg={12}>
+    <a href="#adventure"><div id="adventure"><Image src={nat} /></div></a>
+    </Grid>
+    </div>
 
-              <Grid spacing={2}>
+</Grid>
+
+
+
+<Grid   
+    container columns={{ xs: 6, md: 12, lg: 16 }}
+    direction="row"
+    justifyContent="center"
+    alignItems="center"
+    >
+        <Grid 
+          item xs={6} md={12} lg={12}
+        >
+              <Card style={{backgroundColor: 'black', margin: "1rem"}}>
+                    <CardContent>
+                    <Typography style={{color: "white"}}>
+                     Recommended for you
+                    </Typography>
+                    <Section 
+                    style={{color: "white"}} 
+                    id="recommendedforyou" 
+                    videos={unSeenVideos(videos)}/>
+                    </CardContent>
+              </Card>
               </Grid>
-                <div className="video-feed"> 
-                  <a href="#family"><div className="category" id="family"><Image className="category"src={dis} /></div></a>
-                  <a href="#drama"><div className="category" id="drama"><Image className="category"src={marv} /></div></a>
-                  <a href="#action"><div className="category" id="action"><Image  className="category" src={pix}/></div></a>
-                  <a href="#adventure"><div className="category" id="adventure"><Image className="category"src={nat} /></div></a>
-                  </div>
 
-        <Grid container spacing={2} width="100%">
-              <Card style={{backgroundColor: "#13151F"}}>
-                <Typography style={{color: "white"}}>
-                  Recommended for you
-                </Typography>
-              <Section style={{color: "white"}} id="recommendedforyou" videos={unSeenVideos(videos)}/>
+            
+              <Grid 
+                item xs={6} md={12} lg={12}
+                >
+              <Card style={{backgroundColor: 'black', margin: "1rem"}}>
+                  <CardActionArea>
+                    <CardContent>
+                    <Typography style={{color: "white"}}>
+                    Adventure
+                    </Typography>
+                    <Section 
+                    style={{color: "white"}} 
+                    id="adventure" 
+                    videos={filterVideos(videos, 'adventure')}/>
+                    </CardContent>
+                  </CardActionArea>
               </Card>
-
-              <Card style={{backgroundColor: "#13151F"}}>
-              <Typography style={{color: "white"}}>
-                  Adventure
-                </Typography>
-              <Section id="adventure"  videos={filterVideos(videos, 'adventure')}/>
-              </Card>
-        
-            <Card style={{backgroundColor: "#13151F"}}>
-            <Typography style={{color: "white"}}>
-                  Drama
-                </Typography>
-            <Section id="drama" videos={filterVideos(videos, 'drama')}/>
-              </Card>
-
-              <Card style={{backgroundColor: "#13151F"}}>
-              <Typography style={{color: "white"}}>
-                  Thriller
-                </Typography>
-              <Section id="thriller"  videos={filterVideos(videos, 'thriller')}/>
-              </Card>
+              </Grid>
 
 
-              <Card style={{backgroundColor: "#13151F"}}>
-              <Typography style={{color: "white"}}>
-                  Action
-                </Typography>
-              <Section id="action"  videos={filterVideos(videos, 'action')}/>
+              <Grid 
+                item xs={6} md={12} lg={12}
+                >
+              <Card style={{backgroundColor: 'black', margin: "1rem"}}>
+                  <CardActionArea>
+                    <CardContent>
+                    <Typography style={{color: "white"}}>
+                   Drama
+                    </Typography>
+                    <Section 
+                    style={{color: "white"}} 
+                    id="drama" 
+                    videos={filterVideos(videos, 'drama')}/>
+                    </CardContent>
+                  </CardActionArea>
               </Card>
-          </Grid>
-      </Container>
+              </Grid>
+
+
+          
+              <Grid 
+                item xs={6} md={12} lg={12}
+                >
+              <Card style={{backgroundColor: 'black', margin: "1rem"}}>
+                  <CardActionArea>
+                    <CardContent>
+                    <Typography style={{color: "white"}}>
+                   Thriller
+                    </Typography>
+                    <Section 
+                    style={{color: "white"}} 
+                    id="thriller" 
+                    videos={filterVideos(videos, 'thriller')}/>
+                    </CardContent>
+                  </CardActionArea>
+              </Card>
+              </Grid>
+
+
+              <Grid 
+                item xs={6} md={12} lg={12}
+                >
+              <Card style={{backgroundColor: 'black', margin: "1rem"}}>
+                  <CardActionArea>
+                    <CardContent>
+                    <Typography style={{color: "white"}}>
+                   Action
+                    </Typography>
+                    <Section 
+                    style={{color: "white"}} 
+                    id="action" 
+                    videos={filterVideos(videos, 'action')}/>
+                    </CardContent>
+                  </CardActionArea>
+              </Card>
+              </Grid>
+             
+     </Grid>
  
    </>
   )
